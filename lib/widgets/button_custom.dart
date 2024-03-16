@@ -1,39 +1,36 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:quiz_app/apps/utils/constVariable.dart';
 
 class ButtonCustom extends StatelessWidget {
-  String title;
-  ButtonCustom({super.key, required this.title});
+  final String button_title;
+
+  const ButtonCustom({Key? key, required this.button_title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      //Làm 2 dòng dưới để khi bấm không bị hiện cái ô vuông mờ
       clipBehavior: Clip.hardEdge,
       borderRadius: const BorderRadius.all(Radius.circular(10)),
       child: InkWell(
-        onTap: (){
+        onTap: () {
           print('object');
         },
         child: Ink(
-          padding: EdgeInsets.symmetric(vertical: getHeight(context)*0.013),
+          padding: EdgeInsets.symmetric(vertical: getHeight(context) * 0.013),
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               colors: [
                 Color.fromARGB(255, 11, 247, 136),
                 Color.fromARGB(255, 148, 235, 201),
-              ])
+              ],
+            ),
           ),
-          child: 
-          //bọc bằng Align để chữ vào giữa
-          const Align(
+          child: Align(
             child: Text(
-              "Bắt đầu trải nghiệm",
-              style: TextStyle(
-                fontSize: 22,
-                color: Colors.white
-              ),
+              button_title,
+              style: TextStyle(fontSize: 22, color: Colors.white),
             ),
           ),
         ),

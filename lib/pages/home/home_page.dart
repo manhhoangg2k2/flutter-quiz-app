@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
                 children: [
                   const HomeTitle(),
                   const HomeDropdown(),
-                  ButtonCustom(title: 'Bắt đầu trải nghiệm')
+                  ButtonCustom(button_title: 'Bắt đầu trải nghiệm')
                 ],
               ),
             ),

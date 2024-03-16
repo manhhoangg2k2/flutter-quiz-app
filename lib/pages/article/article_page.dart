@@ -18,7 +18,7 @@ class _ArticlePageState extends State<ArticlePage> {
         children: [
           BackgroundCustom(),
           ArticleHead(),
-          Center(child: Question())
+          Question()
         ]
       ),
     );

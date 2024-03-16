@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:quiz_app/apps/utils/constVariable.dart';
+import 'package:quiz_app/widgets/button_custom.dart';
 
 class Question extends StatefulWidget {
-  const Question({super.key});
+  const Question({Key? key}) : super(key: key);
 
   @override
   State<Question> createState() => _QuestionState();
@@ -13,16 +15,45 @@ class _QuestionState extends State<Question> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: getWidth(context)*0.1,vertical: getHeight(context)*0.25),
-      decoration: BoxDecoration(
+      margin: EdgeInsets.symmetric(horizontal: getWidth(context)*0.1,vertical: getHeight(context)*0.2),
+      decoration: const BoxDecoration(
         color: Colors.white
       ),
-      child: Column(
+      child:Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             "Hãy nhập đáp án câu hỏi bên dưới",
-            style: const TextStyle(color: Colors.black),
-          )
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.black),
+          ),
+          const Text(
+            textAlign: TextAlign.start,
+            "Câu 3/5",
+            style: TextStyle(color: Colors.black),
+          ),
+          SizedBox(height: 20,),
+          Image.asset(
+            'assets/images/question.jpg',
+            width: double.infinity,
+            height: 250,
+          ),
+          const Text(
+            textAlign: TextAlign.start,
+            "Đáp án của bạn",
+            style: TextStyle(color: Colors.black),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: getWidth(context)*0.05),
+            child: const TextField(
+              decoration: InputDecoration(
+                hintText: "Nhập câu trả lời của bạn"
+              ),
+            ),
+          ),
+          SizedBox(height: 20,),
+          ButtonCustom(button_title: "Trả lời")
         ],
       ),
     );
